@@ -39,6 +39,7 @@ public class XMLTV {
             let startDate = Date.parse(tvDate: program.attributes["start"])
             let stopDate = Date.parse(tvDate: program.attributes["stop"])
             let title = program.children(name: "title").first?.value
+            let subtitle = program.children(name: "sub-title").first?.value
             let description = program.children(name: "desc").first?.value
             let icon = program.children(name: "icon").first?.attributes["src"]
             let rating = program.children(name: "star-rating").first?.children(name: "value").first?.value
@@ -51,7 +52,7 @@ public class XMLTV {
                 dict[credit.name] = credit.value
                 return dict
                 } ?? [:]
-            programs.append(TVProgram(start: startDate, stop: stopDate, channel: channel, title: title, description: description, credits: credits, date: date, categories: categories, country: country, episode: episode, icon: icon, rating: rating))
+            programs.append(TVProgram(start: startDate, stop: stopDate, channel: channel, title: title, subtitle: subtitle, description: description, credits: credits, date: date, categories: categories, country: country, episode: episode, icon: icon, rating: rating))
         }
         
         return programs

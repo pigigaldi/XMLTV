@@ -5,6 +5,7 @@ public struct TVProgram {
     public let stop: Date?
     public let channel: TVChannel
     public let title: String?
+    public let subtitle: String?
     public let description: String?
     public let credits: [String:String]
     public let date: String?
